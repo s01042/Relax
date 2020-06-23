@@ -152,7 +152,9 @@ function breathAnimation () {
     if (numberOfIterations == 11) {
         mantra.play()
         if (!mantra.muted) {
-            navigator.serviceWorker.controller.postMessage({type: 'SHOW_NOTIFICATION'})
+            if (navigator.serviceWorker.controller) {
+                navigator.serviceWorker.controller.postMessage({type: 'SHOW_NOTIFICATION'})
+            }
         }
     }
     if(!audio.muted) audio.play()
