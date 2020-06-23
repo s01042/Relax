@@ -1,0 +1,27 @@
+{
+    "name": "Relaxe",
+    "short_name": "Relaxe",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#55b7a4",
+    "description": "take a guided breath",
+    "icons": [
+        {
+            "src": "./img/icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "./img/icon.png",
+            "sizes": "64x64",
+            "type": "image/png"
+        }
+    ],
+    "developer": {
+        "name": "s01042",
+        "url": "www.bvg.de"
+    },
+    "permissions": {
+        "desktop-notification":{}
+    }
+}

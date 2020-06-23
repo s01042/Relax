@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="manifest" href="manifest.webmanifest">
+        <title>Relax</title>
+    </head>
+    <body>
+        <div class="topBar">
+            <input class="box1" title="unmute sound [m]" type="image" src="./img/volume-up-2-256.png" placeholder="unmute" width="27" height="27" style="outline: none;" id="unmute">
+            <span class="box2" style="outline: none;" id="about">Relax</span>        
+        </div>
+        <div class="container">
+            <div class="circle"></div>
+            <div id="text"></div>    
+            <!-- 
+                later i will set in the javascript code  
+                the css class for the animation 
+                pointer_container.className = 'pointer-container' to
+                synchronize the animation, espacially when off line
+            -->
+            <div id="pointer-container"> 
+                <div class="pointer"></div>
+            </div>
+            <div class="gradient-circle"></div>
+        </div>
+        <div id="overlay">
+            <div class="about_text" id="about_text">
+                <h2>Relax...</h2>
+                <p>
+                    and take some deep breaths. lets guide you by the 
+                    visual effects or close your eyes and feel the rhythm 
+                    of the chime.
+                </p>
+                <p>this is a little coding exercise building a PWA example with plain vanilla JavaScript</p>
+                <p>&nbsp;</p>
+                <p>just for fun by <b>s01042</b> (2020)</p>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

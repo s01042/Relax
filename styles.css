@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #224941 url('./img/background.jpg') no-repeat center center/cover;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.topBar {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.topBar span {
+    font-size: 36px;
+    font-weight: bold;
+    color: #336d62
+}
+
+.box1 {
+    flex: 1;
+    display: inline-block;
+}
+
+.box2 {
+    flex: 1;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+/* 
+    Die dot-Syntax deutet es ja schon an: das ist eine 
+    CSS Class Definition
+*/
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    width: 300px;
+    margin: auto;
+    position: relative;
+    transform: scale(1);
+}
+
+/*
+    Das ist CSS Klassen-Vererbung
+    .container.grow ist sozusagen eine spezialisierte Variante
+    von .container. Sie erbt alle Eigenschaften und kann dann 
+    überschreiben bzw. ergänzen.
+*/
+.container.grow {
+    animation: grow 3s linear forwards;
+}
+
+.container.shrink {
+    animation: shrink 3s linear forwards;
+}
+
+.gradient-circle {
+    /*
+        Das ist mir neu. ein konischer Farbverlauf.
+        creates an image consisting of a gradient with color transitions 
+        rotated around a center point (rather than radiating from the center). 
+        Example conic gradients include pie charts and color wheels.
+        https://developer.mozilla.org/en-US/docs/Web/CSS/conic-gradient
+    */
+    background: conic-gradient(
+        #55b7a4 0%,
+        #4ca493 40%,
+        #fff 40%,
+        #fff 60%,
+        #336d62 60%,
+        #2a5b52 100%
+    );
+    height: 320px;
+    width: 320px;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    z-index: -2;
+    border-radius: 50%;
+}
+
+.circle {
+    background-color: #010f1c;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.pointer-container {
+    position: absolute;
+    top: -40px;
+    left: 140px;
+    width: 20px;
+    height: 190px;
+    /*to better understand whats going on uncomment the next line */
+    /*background: red;*/
+    animation: rotate 7.5s linear forwards infinite;
+    transform-origin: bottom center;
+}
+
+.pointer {
+    background-color: #fff;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    display: block;
+}
+
+/*
+    next are following some css animation definition
+    they will be used in various css class def. (see above)
+*/
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes grow {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes shrink {
+    from {
+        transform: scale(1.2);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/*
+    about stuff:
+    sliding and fading animations for the about box
+*/
+@keyframes slidein {
+    0%  {top:-20%}
+    100% {top:50%}
+}
+
+@keyframes slideout {
+    0%  {top: 50%}
+    100% {top: -20%}
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    20% { opacity: 0.2; }
+    40% { opacity: 0.4; }
+    60% { opacity: 0.6; }
+    80% { opacity: 0.9; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    20% { opacity: 0.9; }
+    40% { opacity: 0.5; }
+    60% { opacity: 0.3; }
+    80% { opacity: 0.1; }
+    100% { opacity: 0; }
+}
+
+/*
+    this style definition will be applied on the html element
+    with id=overlay
+*/
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 2;
+    cursor: pointer;
+  }
+  
+#overlay.fadeIn {
+    animation-name: fadeIn;
+    animation-duration: 1000ms;
+}
+
+#overlay.fadeOut {
+    animation-name: fadeOut;
+    animation-duration: 2s;
+}
+
+/*
+    on the other hand this style will be applied on every
+    html element with the class name about_text
+*/
+.about_text{
+    margin: 75px auto;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #666;
+    width: 400px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 5%;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+
+}
+
+.about_text.slidein {
+    animation-name: slidein;
+    animation-duration: 2s;
+}
+
+.about_text.slideout {
+    animation-name: slideout;
+    animation-duration: 2s;
+}
+
+
+.about_text h2 {
+    margin-top: 0;
+    color: #2a5b52;
+}
+
+.about_text p {
+    font-size: 16px;
+    color: #336d62;
+    hyphens: auto; 
+    text-align: justify
+}
