@@ -66,7 +66,7 @@ self.addEventListener('push', (e) =>{
  */
 
 self.addEventListener('message', (e) =>{
-    console.dir(e)
+    //console.dir(e)
     if (e.data && e.data.type === 'SHOW_NOTIFICATION') {
         showNotification()
     }

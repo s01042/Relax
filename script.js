@@ -56,14 +56,15 @@ function toggleMute(image) {
         image.src = './img/mute-xxl.png'
         image.title = 'mute sound [m]'
         audio.muted = false
-        bell.muted = false
         mantra.muted = false
+        bell.muted = false
+        numberOfIterations = 0
     } else {
         image.src = './img/volume-up-2-256.png'
         image.title = 'unmute sound [m]'
         audio.muted = true
-        bell.muted = true
         mantra.muted = true
+        bell.muted = true
     }
 }
 
@@ -85,7 +86,7 @@ const bell =  new Audio('./audio/small_bell.mp3')
  */
 
 const mantra = new Audio('./audio/akira_mantra.mp3')
-mantra.volume = 0.5
+mantra.volume = 0.7
 
 mantra.addEventListener('ended', () => {
     //console.log(`mantra ended`)
@@ -94,12 +95,9 @@ mantra.addEventListener('ended', () => {
 
 /**
  * there is this audio policy where auto play is prohibited
- * and it is more then fair to let the user decide if audio should be played
- * to play muted audio is of course always allowed, so we will start this way
  */
 audio.muted = true
-bell.muted = true
-mantra.muted = true
+
 /**
  * we will make this a PWA. so the user can visit the site, that is
  * hosting the relax app and there he can add this website as a PWA to his 
@@ -150,8 +148,8 @@ function breathAnimation () {
     numberOfIterations++
     //console.log(`number of iter: ${numberOfIterations}`)
     if (numberOfIterations == 11) {
-        mantra.play()
-        if (!mantra.muted) {
+        if (!audio.muted) {
+            mantra.play()
             if (navigator.serviceWorker.controller) {
                 navigator.serviceWorker.controller.postMessage({type: 'SHOW_NOTIFICATION'})
             }
