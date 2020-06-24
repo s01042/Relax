@@ -89,8 +89,8 @@ const mantra = new Audio('./audio/akira_mantra.mp3')
 mantra.volume = 0.7
 
 mantra.addEventListener('ended', () => {
-    //console.log(`mantra ended`)
-    numberOfIterations = 0
+    numberOfIterations = 0  // start to recount
+    mantra.currentTime = 0  // set the playhead to 0
 })
 
 /**
@@ -148,7 +148,7 @@ function breathAnimation () {
     numberOfIterations++
     //console.log(`number of iter: ${numberOfIterations}`)
     if (numberOfIterations == 11) {
-        if (!audio.muted) {
+        if (!audio.muted && mantra.currentTime === 0) {
             mantra.play()
             if (navigator.serviceWorker.controller) {
                 navigator.serviceWorker.controller.postMessage({type: 'SHOW_NOTIFICATION'})
