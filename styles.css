@@ -79,19 +79,19 @@ body {
         https://developer.mozilla.org/en-US/docs/Web/CSS/conic-gradient
     */
     background: conic-gradient(
-        #55b7a4 0%,
-        #4ca493 40%,
-        #fff 40%,
-        #fff 60%,
-        #336d62 60%,
-        #2a5b52 100%
+        #55b7a4 0deg,
+        #4ca493 144deg,
+        #fff 144deg,
+        #fff 216deg,
+        #336d62 216deg,
+        #2a5b52 360deg
     );
     height: 270px;
     width: 270px;
     position: absolute;
     top: -10px;
     left: -10px;
-    z-index: -2;
+    z-index: -1;
     border-radius: 50%;
 }
 
