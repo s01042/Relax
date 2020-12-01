@@ -32,14 +32,16 @@ overlay.addEventListener('click', (e) => {
  * unmute/mute sound via mouse click
  */
 unmute.addEventListener('click', (e) => {
+
     toggleMute(e.srcElement)
+    askForPermission()
 })
 
 /**
  * unmut/mute sound via hotkey
  */
 window.addEventListener('keydown', function (e) {
-    if (event.key === 'm') {
+    if (e.key === 'm') {
         //here we simple reuse toggleMute but we have to 
         //give the image as param, e.srcElement is the document 
         //itself. so let's travers the child elements
@@ -113,7 +115,7 @@ audio.muted = true
  */
 window.addEventListener('load', () =>{
     registerServiceWorker()
-    askForPermission()
+    //askForPermission()
 })
 
 let notificationAllowed = false
@@ -125,7 +127,7 @@ async function askForPermission() {
 async function registerServiceWorker() {
     if ('serviceWorker' in navigator) {
         try {
-            await navigator.serviceWorker.register('./service-worker.js')
+            await navigator.serviceWorker.register('./serviceWorker-Relax.js')
         }
         catch (e) {
             console.log(`ServiceWorker registration failed: ${e}`)

@@ -1,9 +1,10 @@
 {
     "name": "Relax",
     "short_name": "Relax",
-    "start_url": ".",
+    "start_url": "/Relax",
     "display": "standalone",
     "background_color": "#55b7a4",
+    "theme_color": "#2a5b52",
     "description": "take a guided breath",
     "icons": [
         {
@@ -14,14 +15,15 @@
         {
             "src": "./img/icon64.png",
             "sizes": "64x64",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         }
     ],
     "developer": {
         "name": "s01042",
-        "url": "www.bvg.de"
+        "url": "https://github.com/s01042"
     },
-    "permissions": {
-        "desktop-notification":{}
-    }
+    "permissions": [
+        "desktop-notification"
+    ]
 }
