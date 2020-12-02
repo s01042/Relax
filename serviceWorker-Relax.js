@@ -27,8 +27,7 @@ const staticAssets = [
     './img/icon64.png',
     './audio/klangschale.mp3',
     './audio/small_bell.mp3',
-    './audio/akira_mantra.mp3',
-    './manifest.webmanifest',
+    './manifest.webmanifest'
 ]
 
 /**

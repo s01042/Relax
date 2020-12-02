@@ -127,7 +127,8 @@ async function askForPermission() {
 async function registerServiceWorker() {
     if ('serviceWorker' in navigator) {
         try {
-            await navigator.serviceWorker.register('./serviceWorker-Relax.js')
+            /** scope should match with scope in manifest */
+            await navigator.serviceWorker.register('./serviceWorker-Relax.js', {scope: "./"})
         }
         catch (e) {
             console.log(`ServiceWorker registration failed: ${e}`)

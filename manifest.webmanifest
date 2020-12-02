@@ -1,8 +1,10 @@
 {
     "name": "Relax",
     "short_name": "Relax",
-    "start_url": "/Relax",
+    "start_url": "./",
+    "scope": "./",
     "display": "standalone",
+    "orientation": "portrait",
     "background_color": "#55b7a4",
     "theme_color": "#2a5b52",
     "description": "take a guided breath",
